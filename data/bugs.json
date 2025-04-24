@@ -1,13 +1,24 @@
 [
     {
-        "title": "asddasd",
-        "severity": 3,
-        "_id": "M7rKF"
-    },
-    {
         "title": "Bug 1745465389024",
         "severity": 5,
         "_id": "OV25b"
+    },
+    {
+        "title": "Bug 1745465455981",
+        "severity": 7,
+        "_id": "T7NIX"
+    },
+    {
+        "title": "Bug 1745466854521",
+        "severity": 2,
+        "labels": [
+            "asd",
+            "jjgjg"
+        ],
+        "description": "Description 1745466861984",
+        "createdAt": 1745466865241,
+        "_id": "YqXv5"
     },
     {
         "_id": "a8",
@@ -96,10 +107,5 @@
             "search",
             "data"
         ]
-    },
-    {
-        "title": "Bug 1745465455981",
-        "severity": 7,
-        "_id": "T7NIX"
     }
 ]

@@ -11,7 +11,7 @@ export const bugService = {
     getById,
 }
 
-function query(filterBy, sortBy = {}) {
+function query(filterBy = {}, sortBy = {}) {
     let bugsForDisplay = bugs
     if (filterBy.txt) {
         const regExp = new RegExp(filterBy.txt, 'i')

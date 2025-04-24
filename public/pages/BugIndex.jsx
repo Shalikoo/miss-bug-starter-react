@@ -31,7 +31,10 @@ export function BugIndex() {
     function onAddBug() {
         const bug = {
             title: prompt('Bug title?', 'Bug ' + Date.now()),
-            severity: +prompt('Bug severity?', 3)
+            severity: +prompt('Bug severity?', 3),
+            labels: prompt('Bug labels?', 'label1,label2').split(',').map(label => label.trim()),
+            description: prompt('Bug description?', 'Description ' + Date.now()),
+            createdAt: Date.now(),
         }
 
         bugService.save(bug)
@@ -44,6 +47,12 @@ export function BugIndex() {
 
     function onEditBug(bug) {
         const severity = +prompt('New severity?', bug.severity)
+        if (isNaN(severity)) return
+        if (severity < 1 || severity > 5) {
+            showErrorMsg('Severity must be between 1 and 5')
+            return
+        }
+        if (severity === bug.severity) return
         const bugToSave = { ...bug, severity }
 
         bugService.save(bugToSave)

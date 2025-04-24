@@ -8,7 +8,6 @@ export const bugService = {
   save,
   remove,
   getDefaultFilter,
-  _setNextPrevBugId,
 }
 
 function query(filterBy = {}) {
@@ -19,7 +18,6 @@ function getById(bugId) {
   return axios
     .get(url + bugId)
     .then((res) => res.data)
-    .then((bug) => _setNextPrevBugId(bug))
 }
 
 function remove(bugId) {
@@ -43,24 +41,4 @@ function getDefaultFilter() {
     labels: [],
     pageIdx: 0,
   }
-}
-
-function _setNextPrevBugId(bugId) {
-  return axios.get(url).then((res) => {
-    const bugs = res.data
-    const idx = bugs.findIndex((bug) => String(bug._id) === String(bugId))
-
-    if (idx === -1) {
-      return null
-    }
-
-    const nextBug = bugs[idx + 1] || bugs[0]
-    const prevBug = bugs[idx - 1] || bugs[bugs.length - 1]
-
-    return {
-      ...bugs[idx],
-      nextBugId: nextBug._id,
-      prevBugId: prevBug._id,
-    }
-  })
 }
