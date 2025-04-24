@@ -14,6 +14,7 @@ app.get('/api/bug', (req, res) => {
     const filterBy = {
         txt: req.query.txt || '',
         minSeverity: +req.query.minSeverity,
+        label: req.query.label || '',
     }
     bugService.query(filterBy)
         .then(bugs => res.send(bugs))
@@ -23,7 +24,6 @@ app.get('/api/bug', (req, res) => {
         })
 })
 
-//* Create/Edit
 app.get("/api/bug/save", (req, res) => {
   const bugToSave = {
     _id: req.query._id,
@@ -44,7 +44,7 @@ app.get("/api/bug/save", (req, res) => {
 app.get("/api/bug/:bugId", (req, res) => {
   let visitedBugIds = JSON.parse(req.cookies.visitedBugs || "[]")
 
-  if (visitedBugIds.length > 3) {
+  if (visitedBugIds.length >= 3) {
     return res.status(401).send("Wait for a bit")
   }
 
@@ -62,8 +62,6 @@ app.get("/api/bug/:bugId", (req, res) => {
     })
 })
 
-
-//* Remove/Delete
 app.get("/api/bug/:bugId/remove", (req, res) => {
   bugService
     .remove(req.params.bugId)

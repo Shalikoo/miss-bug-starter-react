@@ -1,7 +1,7 @@
 const { useState, useEffect } = React
 const { Link, useParams } = ReactRouterDOM
 
-import { bugService } from '../services/bug.service.local.js'
+import { bugService } from '../services/bug.service.js'
 import { showErrorMsg } from '../services/event-bus.service.js'
 
 export function BugDetails() {
@@ -10,6 +10,7 @@ export function BugDetails() {
     const { bugId } = useParams()
 
     useEffect(() => {
+        console.log('bugId:' + bugId)
         bugService.getById(bugId)
             .then(bug => setBug(bug))
             .catch(err => showErrorMsg(`Cannot load bug`, err))

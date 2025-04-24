@@ -44,6 +44,9 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
 
                 <label htmlFor="minSeverity">Min Severity: </label>
                 <input value={minSeverity} onChange={handleChange} type="number" placeholder="By Min Severity" id="minSeverity" name="minSeverity" />
+                
+                <label htmlFor="label">Label: </label>
+                <input value={filterByToEdit.label} onChange={handleChange} type="text" placeholder="By Label" id="label" name="label" />
             </form>
         </section>
     )
