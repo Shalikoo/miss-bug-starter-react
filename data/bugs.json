@@ -25,7 +25,7 @@
         "_id": "a9",
         "title": "Layout broken on mobile",
         "description": "UI is distorted on small screens",
-        "severity": 2,
+        "severity": 3,
         "createdAt": 1645107359454,
         "labels": [
             "ui",
@@ -97,5 +97,10 @@
             "cart",
             "checkout"
         ]
+    },
+    {
+        "title": "asddasd",
+        "severity": 3,
+        "_id": "M7rKF"
     }
 ]
