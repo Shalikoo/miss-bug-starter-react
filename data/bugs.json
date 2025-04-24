@@ -1,14 +1,13 @@
 [
     {
-        "_id": "a7",
-        "title": "Login fails",
-        "description": "User can't log in with correct credentials",
-        "severity": 2,
-        "createdAt": 1643107359454,
-        "labels": [
-            "login",
-            "authentication"
-        ]
+        "title": "asddasd",
+        "severity": 3,
+        "_id": "M7rKF"
+    },
+    {
+        "title": "Bug 1745465389024",
+        "severity": 5,
+        "_id": "OV25b"
     },
     {
         "_id": "a8",
@@ -19,17 +18,6 @@
         "labels": [
             "ui",
             "button"
-        ]
-    },
-    {
-        "_id": "a9",
-        "title": "Layout broken on mobile",
-        "description": "UI is distorted on small screens",
-        "severity": 3,
-        "createdAt": 1645107359454,
-        "labels": [
-            "ui",
-            "responsive"
         ]
     },
     {
@@ -55,6 +43,39 @@
         ]
     },
     {
+        "_id": "b6",
+        "title": "Incorrect total in cart",
+        "description": "Price calculation is wrong in checkout",
+        "severity": 3,
+        "createdAt": 1651107359454,
+        "labels": [
+            "cart",
+            "checkout"
+        ]
+    },
+    {
+        "_id": "a9",
+        "title": "Layout broken on mobile",
+        "description": "UI is distorted on small screens",
+        "severity": 3,
+        "createdAt": 1645107359454,
+        "labels": [
+            "ui",
+            "responsive"
+        ]
+    },
+    {
+        "_id": "a7",
+        "title": "Login fails",
+        "description": "User can't log in with correct credentials",
+        "severity": 2,
+        "createdAt": 1643107359454,
+        "labels": [
+            "login",
+            "authentication"
+        ]
+    },
+    {
         "_id": "b3",
         "title": "Notifications not working",
         "description": "No alerts shown for new messages",
@@ -77,30 +98,8 @@
         ]
     },
     {
-        "_id": "b5",
-        "title": "Crash on logout",
-        "description": "App crashes when clicking logout",
-        "severity": 2,
-        "createdAt": 1650107359454,
-        "labels": [
-            "logout",
-            "crash"
-        ]
-    },
-    {
-        "_id": "b6",
-        "title": "Incorrect total in cart",
-        "description": "Price calculation is wrong in checkout",
-        "severity": 3,
-        "createdAt": 1651107359454,
-        "labels": [
-            "cart",
-            "checkout"
-        ]
-    },
-    {
-        "title": "asddasd",
-        "severity": 3,
-        "_id": "M7rKF"
+        "title": "Bug 1745465455981",
+        "severity": 7,
+        "_id": "T7NIX"
     }
 ]

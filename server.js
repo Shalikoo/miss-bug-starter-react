@@ -9,30 +9,33 @@ app.use(express.static('public'))
 app.use(express.json())
 app.use(cookieParser())
 
+
 app.get('/api/bug', (req, res) => {
-  const filterBy = { txt: req.query.txt || '', minSeverity: +req.query.minSeverity, label: req.query.label || '' }
-  bugService.query(filterBy)
+  const filterBy = { txt: req.query.txt || '', minSeverity: +req.query.minSeverity, label: req.query.label || '', pageIdx: +req.query.pageIdx || 0 }
+  const sortBy = { type: req.query.sortBy || 'createdAt', desc: +req.query.sortDir}
+
+  bugService.query(filterBy, sortBy)
     .then(bugs => res.json(bugs))
-    .catch(err => res.status(400).send('Cant get bugs'))
+    .catch(err => res.status(400).send('Cant get bugs', err))
 })
 
 app.post('/api/bug', (req, res) => {
   bugService.save(req.body)
     .then(bug => res.json(bug))
-    .catch(err => res.status(400).send('Cant add bug'))
+    .catch(err => res.status(400).send('Cant add bug', err))
 })
 
 app.put('/api/bug/:bugId', (req, res) => {
   const bugToSave = { ...req.body, _id: req.params.bugId }
   bugService.save(bugToSave)
     .then(bug => res.json(bug))
-    .catch(err => res.status(400).send('Cant update bug'))
+    .catch(err => res.status(400).send('Cant update bug', err))
 })
 
 app.delete('/api/bug/:bugId', (req, res) => {
   bugService.remove(req.params.bugId)
     .then(() => res.send('Deleted'))
-    .catch(err => res.status(400).send('Cant remove bug'))
+    .catch(err => res.status(400).send('Cant remove bug', err))
 })
 
 app.get('/api/bug/:bugId', (req, res) => {
@@ -46,7 +49,7 @@ app.get('/api/bug/:bugId', (req, res) => {
 
   bugService.getById(req.params.bugId)
     .then(bug => res.json(bug))
-    .catch(err => res.status(400).send('Cant get bug'))
+    .catch(err => res.status(400).send('Cant get bug', err))
 })
 
 const port = 3030
